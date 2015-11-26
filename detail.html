@@ -84,6 +84,19 @@
     if (!is_weixin()) {
         downloadBanner.style.display = 'none';
     }
+
+    //online
+    window.addEventListener('offline', function () {
+        var img = document.createElement('img');
+        img.src = 'images/offline.png';
+        img.className = 'offline';
+        var offlineTips = document.createElement('div');
+        offlineTips.className = 'offline-tips';
+        offlineTips.innerHTML = '网络异常,请检查网络重试!';
+        document.body.innerHTML = '';
+        document.body.appendChild(offlineTips);
+        document.body.appendChild(img);
+    });
 </script>
 </body>
 </html>

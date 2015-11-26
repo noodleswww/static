@@ -94,6 +94,16 @@ notices: 页面用在 app 内部, 底部为分享按钮, 其他内容和在微�
 
 <script>
 
+    //share
+    var appBtn = document.getElementsByClassName('share-btn')[0];
+    appBtn.addEventListener('click', function (evt) {
+        evt.stopPropagation();
+        window.share_toWechat_js && window.share_toWechat_js.startShare();
+        if (shareWX) {
+            shareWX(new Date().valueOf());
+        }
+    });
+
     ~function () {
         window.onload = function () {
             var target1Distance = document.getElementById('target1').offsetTop;
@@ -143,15 +153,6 @@ notices: 页面用在 app 内部, 底部为分享按钮, 其他内容和在微�
                     });
                 }(i);
             }
-            //share
-            var appBtn = document.getElementsByClassName('share-btn')[0];
-            appBtn.addEventListener('click', function (evt) {
-                evt.stopPropagation();
-                window.share_toWechat_js && window.share_toWechat_js.startShare();
-                if (shareWX) {
-                    shareWX(new Date().valueOf());
-                }
-            });
         };
     }();
 
